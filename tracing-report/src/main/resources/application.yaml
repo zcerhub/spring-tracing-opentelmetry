@@ -1,0 +1,28 @@
+server:
+  port: 18080
+services:
+  user:
+    url: localhost:28080
+  email:
+    url: localhost:28080
+
+kafka:
+  bootstrap: 192.168.28.132:29092
+  topic: reports
+  group: emails
+
+logging:
+  level:
+    root: debug
+
+spring:
+  application:
+    name: report-service
+  sleuth:
+    otel:
+      config:
+        trace-id-ratio-based: 1.0
+      exporter:
+        otlp:
+          endpoint: http://192.168.28.132:49158
+

@@ -1,0 +1,22 @@
+server:
+  port: 28080
+services:
+  report:
+    url: http://report-service:18080
+  email:
+    url: http://email-service:38080
+
+logging:
+  level:
+    root: debug
+
+spring:
+  application:
+    name: user-service
+  sleuth:
+    otel:
+      config:
+        trace-id-ratio-based: 1.0
+      exporter:
+        otlp:
+          endpoint: http://192.168.28.132:49158
